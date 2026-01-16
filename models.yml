@@ -971,6 +971,11 @@ meeting:
     type: boolean
     default: False
     restriction_mode: F
+  enable_decision_archive:
+    type: boolean
+    default: False
+    restriction_mode: F
+    description: When enabled, archived decisions from this meeting are visible to all logged-in users.
   custom_translations:
     type: JSON
     restriction_mode: B
@@ -3362,6 +3367,11 @@ motion_state:
     type: boolean
     restriction_mode: A
     default: false
+  publish_to_archive:
+    type: boolean
+    restriction_mode: A
+    default: false
+    description: Motions in this state are published to the organization-wide decision archive.
   state_button_label:
     type: string
     restriction_mode: A

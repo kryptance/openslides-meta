@@ -272,6 +272,8 @@ CREATE TABLE organization_t (
     oidc_client_secret varchar(256),
     oidc_login_button_text varchar(256) DEFAULT 'OIDC login',
     oidc_attr_mapping jsonb,
+    oidc_admin_api_enabled boolean,
+    oidc_admin_api_url varchar(1024),
     theme_id integer NOT NULL UNIQUE,
     users_email_sender varchar(256) DEFAULT 'OpenSlides',
     users_email_replyto varchar(256),

@@ -238,6 +238,14 @@ organization:
     type: JSON
     restriction_mode: D
     description: Mapping of User-Info fields to OpenSlides User fields
+  oidc_admin_api_enabled:
+    type: boolean
+    restriction_mode: D
+    description: Enable syncing user changes to Keycloak Admin API
+  oidc_admin_api_url:
+    type: string
+    restriction_mode: D
+    description: Keycloak Admin API URL (e.g. https://keycloak/admin/realms/openslides)
 
   committee_ids:
     type: relation-list

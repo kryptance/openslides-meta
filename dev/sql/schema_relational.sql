@@ -289,6 +289,11 @@ BEGIN
     ELSE
         own_id := hstore(OLD) -> intermediate_table_own_key;
         foreign_id := hstore(OLD) -> intermediate_table_foreign_key;
+        -- If the owning record was deleted in the same transaction, skip the check.
+        EXECUTE format('SELECT 1 FROM %I WHERE id = %L', own_collection || '_t', own_id) INTO counted;
+        IF (counted IS NULL) THEN
+            RETURN NULL;
+        END IF;
     END IF;
 
     EXECUTE format('SELECT 1 FROM %I WHERE %I = %L', intermediate_table_name, intermediate_table_own_key, own_id) INTO counted;
